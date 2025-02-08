@@ -1,0 +1,5 @@
+body {
+    background-size: cover;
+    background-image: url("../../public/home-back.jpg");
+    background-attachment: fixed;
+}
