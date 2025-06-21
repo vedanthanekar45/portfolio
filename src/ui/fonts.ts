@@ -7,9 +7,11 @@ export const inter = Inter({
 });
 
 export const roboto = Roboto({
-    weight: '700'
+    weight: '700',
+    subsets: ['latin'],
 });
 
 export const bentham = Bentham({
-    weight: '400'
+    weight: '400',
+    subsets: ['latin'],
 });
