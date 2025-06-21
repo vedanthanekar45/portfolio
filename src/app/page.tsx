@@ -1,3 +1,4 @@
+'use client';
 import style from './home.module.css'
 import { inter, bentham } from '@/ui/fonts'
 import { GiFallingStar } from "react-icons/gi";
@@ -25,7 +26,7 @@ export default function Home() {
             <div className={`${inter.className} flex flex-col items-center 
             justify-center text-7xl text-white font-black h-[85vh]`}>
                 <h1 className="text-center">Where every star holds a story, <br></br> waiting to be found</h1>
-                <button class="mt-10 border h-16 border-slate-300 py-2 px-10 text-center text-xl 
+                <button className="mt-10 border h-16 border-slate-300 py-2 px-10 text-center text-xl 
                 transition-all shadow-sm hover:shadow-lg text-white hover:text-white 
                 hover:bg-black hover:border-black focus:text-white focus:bg-slate-800 
                 focus:border-slate-800 active:border-slate-800 active:text-white 
