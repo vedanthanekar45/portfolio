@@ -15,7 +15,6 @@
 }
 
 body {
-    background-size: cover;
-    background-image: url("../../public/home-bck.jpg");
     background-attachment: fixed;
+    background-color: #131133
 }
