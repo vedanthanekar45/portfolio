@@ -14,7 +14,18 @@
   }
 }
 
+@font-face {
+  font-family: 'Segoe UI Local';
+  src: url('../app/fonts/segoe-ui-light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+.segoe {
+  font-family: "Segoe UI Local"
+}
+
+
 body {
     background-attachment: fixed;
-    background-color: #131133
+    background-image: url(../../public/back3.png);
 }
