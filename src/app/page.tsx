@@ -4,8 +4,8 @@ import MetroTile from './components/MetroTile';
 import MetroTileSquare from './components/MetroTileSquare';
 import SettingsModal from './components/modals/SettingsModal';
 import ModalLoading from './components/modals/ModalLoading';
-import toast from 'react-hot-toast';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
     const tileColumnVariants = {
@@ -20,10 +20,6 @@ export default function Home() {
             },
         }),
     };
-
-    const handleComingSoon = () => {
-        toast.success('Coming Soon!')
-    }
 
     const [loading, setLoading] = useState(false)
     const [isSettingsOpen, setSettingsOpen] = useState(false);
@@ -70,7 +66,7 @@ export default function Home() {
                         <h1 className="segoe text-5xl ml-40 mt-16 text-white">Start</h1>
                         <div className="mt-20 mr-20 flex">
                             <h2 className="segoe text-white text-3xl mr-6">Vedant Thanekar</h2>
-                            <img src="/photo.jpeg" className="w-10 h-10
+                            <Image alt="my photo" src="/photo.jpeg" className="w-10 h-10
                                 border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]"
                                 onClick={() => handleTileClick("About")} />
                         </div>
