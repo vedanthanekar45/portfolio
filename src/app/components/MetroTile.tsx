@@ -1,13 +1,15 @@
 'use client'
+
 type MetroTileProps = {
     bgColor: string;
     iconSrc: string;
     text: string;
-    link: string;
+    link?: string;
     className?: string;
+    onClick?: () => void;
 }
 
-export default function MetroTile({ bgColor, iconSrc, text, link, className}: MetroTileProps) {
+export default function MetroTile({ bgColor, iconSrc, text, link, className, onClick}: MetroTileProps) {
 
     const tileStyle = {
         backgroundColor: bgColor,
@@ -15,7 +17,7 @@ export default function MetroTile({ bgColor, iconSrc, text, link, className}: Me
 
     return (
         <a href={link}>
-            <div className={`relative w-96 h-52 my-2 flex flex-col justify-between
+            <div onClick={onClick} className={`relative w-96 h-52 my-2 flex flex-col justify-between
             border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)] ${className}`}
             style={tileStyle}>
                 <div className="h-full flex items-center justify-center">

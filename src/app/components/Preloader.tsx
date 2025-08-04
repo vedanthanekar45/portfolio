@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react';
 
 export default function Preloader({ onFinish }: { onFinish: () => void }) {
