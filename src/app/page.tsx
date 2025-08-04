@@ -106,18 +106,22 @@ export default function Home() {
                         animate="visible"
                     >
                         <div className="flex">
-                            <MetroTileSquare bgColor="#00527eff" iconSrc="./linkedin.svg" text="LinkedIn" link="https://www.linkedin.com/in/vedant-thanekar/" />
-                            <MetroTileSquare bgColor="#00001dff" iconSrc="/github.png" text="Github" link="https://www.github.com/vedanthanekar45" />
+                            <MetroTileSquare bgColor="#00527eff" iconSrc="./linkedin.svg" text="LinkedIn" link="https://www.linkedin.com/in/vedant-thanekar/" 
+                            className="ml-2" />
+                            <MetroTileSquare bgColor="#00001dff" iconSrc="/github.png" text="Github" link="https://www.github.com/vedanthanekar45" 
+                            className="ml-2" />
                         </div>
                         <div className="flex">
-                            <MetroTileSquare bgColor="#0c0c0cff" iconSrc="/x.svg" text="Twitter" link="https://x.com/ThanekarVedant" />
-                            <MetroTileSquare bgColor="#01ad09ff" iconSrc="./spotify.png" text="Spotify" link="https://open.spotify.com/user/t80raipjue8g40p5c6zd1490z?si=39P2j1UIR5Wvb6n9Yd2Riw" />
+                            <MetroTileSquare bgColor="#0c0c0cff" iconSrc="/x.svg" text="Twitter" link="https://x.com/ThanekarVedant" 
+                            className="ml-2" />
+                            <MetroTileSquare bgColor="#01ad09ff" iconSrc="./spotify.png" text="Spotify" link="https://open.spotify.com/user/t80raipjue8g40p5c6zd1490z?si=39P2j1UIR5Wvb6n9Yd2Riw" 
+                            className="ml-2" />
                         </div>
                         <div>
-                            <MetroTile bgColor="#e90101ff" iconSrc="/code.png" text="Projects" className="ml-2 w-full" onClick={() => {
+                            <MetroTile bgColor="#e90101ff" iconSrc="/code.png" text="Projects" className="ml-2 w-[425px]" onClick={() => {
                                 setSettingsOpen(true)
                                 setInitialSection("Projects")
-                            }} />
+                            }}/>
                         </div>
                     </motion.div>
 
