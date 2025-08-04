@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import MetroTile from './components/MetroTile';
 import MetroTileSquare from './components/MetroTileSquare';
 import SettingsModal from './components/modals/SettingsModal';
+import ModalLoading from './components/modals/ModalLoading';
+import toast from 'react-hot-toast';
 import { useState } from 'react';
 
 export default function Home() {
@@ -19,8 +21,42 @@ export default function Home() {
         }),
     };
 
+    const handleComingSoon = () => {
+        toast.success('Coming Soon!')
+    }
+
+    const [loading, setLoading] = useState(false)
     const [isSettingsOpen, setSettingsOpen] = useState(false);
     const [initialSection, setInitialSection] = useState("About");
+
+    const handleTileClick = (section: string) => {
+        setInitialSection(section);
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+            setSettingsOpen(true);
+        }, 1500);
+    };
+
+
+    const getColorForSection = (section: string) => {
+        switch (section) {
+            case 'About': return '#cc4a04';
+            case 'Resume': return '#006912ff';
+            case 'Projects': return '#e90101ff';
+            default: return '#000';
+        }
+    };
+
+    const getIconForSection = (section: string) => {
+        switch (section) {
+            case 'About': return '/about.png';
+            case 'Resume': return '/resume.png';
+            case 'Projects': return '/code.png'
+            default: return '';
+        }
+    }
 
     return (
         <>
@@ -35,11 +71,8 @@ export default function Home() {
                         <div className="mt-20 mr-20 flex">
                             <h2 className="segoe text-white text-3xl mr-6">Vedant Thanekar</h2>
                             <img src="/photo.jpeg" className="w-10 h-10
-                                border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]" 
-                                onClick={() => {
-                                    setSettingsOpen(true) 
-                                    setInitialSection("About")
-                                }}/>
+                                border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]"
+                                onClick={() => handleTileClick("About")} />
                         </div>
                     </div>
                 </motion.h1>
@@ -81,9 +114,9 @@ export default function Home() {
                         </div>
                         <div>
                             <MetroTile bgColor="#e90101ff" iconSrc="/code.png" text="Projects" className="ml-2 w-full" onClick={() => {
-                            setSettingsOpen(true)
-                            setInitialSection("Projects")
-                        }} />
+                                setSettingsOpen(true)
+                                setInitialSection("Projects")
+                            }} />
                         </div>
                     </motion.div>
 
@@ -95,9 +128,9 @@ export default function Home() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <MetroTile bgColor="#d86800ff" iconSrc="/blog.svg" text="Blogs and Stories" link="#" />
-                        <MetroTile bgColor="#7a00aaff" iconSrc="/resume.png" text="Screenplays" link="#" />
-                        <MetroTileSquare bgColor="#008299ff" iconSrc="/photos.png" text="Photos" link="#" />
+                        <MetroTile bgColor="#d86800ff" iconSrc="/blog.svg" text="Blogs and Stories" onClick={handleComingSoon} />
+                        <MetroTile bgColor="#7a00aaff" iconSrc="/resume.png" text="Screenplays" onClick={handleComingSoon} />
+                        <MetroTileSquare bgColor="#008299ff" iconSrc="/photos.png" text="Photos" link="https://www.instagram.com/vedanthanekar/" />
                     </motion.div>
                 </div>
                 <SettingsModal
@@ -105,7 +138,17 @@ export default function Home() {
                     onClose={() => setSettingsOpen(false)}
                     initialSection={initialSection}
                 />
+                {loading && (
+                    <ModalLoading bgColor={getColorForSection(initialSection)} iconSrc={getIconForSection(initialSection)} />
+                )}
 
+                {!loading && (
+                    <SettingsModal
+                        isOpen={isSettingsOpen}
+                        initialSection={initialSection}
+                        onClose={() => setSettingsOpen(false)}
+                    />
+                )}
             </div>
         </>
     )

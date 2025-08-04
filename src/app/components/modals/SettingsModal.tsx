@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { motion, AnimatePresence } from 'framer-motion';
+import Resume from '../portfolio/Resume';
+import Projects from '../portfolio/Projects';
 
 const navItems = [
   'About',
@@ -13,12 +15,35 @@ const navItems = [
 ];
 
 const SettingsContent: Record<string, React.ReactNode> = {
-  About: <div className="text-xl"> Personalize settings go here</div>,
-  Education: <div className="text-xl"> User management area</div>,
-  Experience: <div className="text-xl">Notification toggles and stuff</div>,
-  Skills: <div className="text-xl">Search options</div>,
-  Projects: <div className="text-xl">Sharing preferences</div>,
-  Resume: <div className="text-xl">General system options</div>,
+  About: 
+  <div className="text-xl"> 
+    Personalize settings go here
+  </div>,
+
+  Education: 
+  <div className="text-xl"> 
+    User management area
+  </div>,
+
+  Experience: 
+  <div className="text-xl">
+    Notification toggles and stuff
+  </div>,
+
+  Skills: 
+  <div className="text-xl">
+    Search options
+  </div>,
+
+  Projects: 
+  <div className="text-xl">
+    <Projects />
+  </div>,
+
+  Resume: 
+  <div className="text-xl">
+    <Resume />
+  </div>,
 };
 
 type SettingsModalProps = {
@@ -56,7 +81,7 @@ export default function SettingsModal({ isOpen, onClose, initialSection }: Setti
           <div className="flex h-full text-[#0078D7] text-2xl segoe">
             {/* Sidebar */}
             <div className="w-1/4 min-w-[220px] bg-[#f2f2f2] border-r border-gray-300">
-              <h2 className="text-3xl font-light px-6 py-5">Information</h2>
+              <h2 className="text-5xl font-light px-6 py-8">Information</h2>
               <ul className="space-y-1 overflow-y-auto max-h-[calc(100vh-48px)]">
                 {navItems.map((item) => (
                   <li
@@ -75,7 +100,7 @@ export default function SettingsModal({ isOpen, onClose, initialSection }: Setti
 
             {/* Content */}
             <div className="flex-1 p-10 overflow-y-auto">
-              <h3 className="text-2xl font-light mb-6">{selected}</h3>
+              <h3 className="text-4xl text-black font-light mb-6">{selected}</h3>
               <div className="space-y-6">
                 {SettingsContent[selected] || (
                   <div className="text-gray-500">No content available</div>
