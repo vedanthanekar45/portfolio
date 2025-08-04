@@ -1,22 +1,21 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, Variant } from 'framer-motion';
 import MetroTile from './components/MetroTile';
 import MetroTileSquare from './components/MetroTileSquare';
 import SettingsModal from './components/modals/SettingsModal';
 import ModalLoading from './components/modals/ModalLoading';
 import { useState } from 'react';
-import Image from 'next/image';
 
 export default function Home() {
     const tileColumnVariants = {
         hidden: { scale: 0.8, opacity: 0 },
-        visible: (delay: number) => ({
+        visible: (delay: number): any => ({
             scale: 1,
             opacity: 1,
             transition: {
                 delay,
                 duration: 0.4,
-                ease: [0.34, 1.56, 0.64, 1], // springy feel
+                ease: [0.34, 1.56, 0.64, 1],
             },
         }),
     };
@@ -66,7 +65,7 @@ export default function Home() {
                         <h1 className="segoe text-5xl ml-40 mt-16 text-white">Start</h1>
                         <div className="mt-20 mr-20 flex">
                             <h2 className="segoe text-white text-3xl mr-6">Vedant Thanekar</h2>
-                            <Image alt="my photo" src="/photo.jpeg" className="w-10 h-10
+                            <img alt="my photo" src="/photo.jpeg" className="w-10 h-10
                                 border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]"
                                 onClick={() => handleTileClick("About")} />
                         </div>
@@ -78,9 +77,9 @@ export default function Home() {
 
                     <motion.div
                         custom={0.3}
-                        variants={tileColumnVariants}
                         initial="hidden"
                         animate="visible"
+                        variants={tileColumnVariants}
                     >
                         <MetroTile bgColor="#06777a" iconSrc="/mail.png" text="Mail" link="mailto:vedanthanekar45@gmail.com" />
                         <MetroTile bgColor="#cc4a04" iconSrc="/about.png" text="About" onClick={() => {
