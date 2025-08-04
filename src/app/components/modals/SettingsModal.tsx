@@ -4,6 +4,9 @@ import { IoMdClose } from "react-icons/io";
 import { motion, AnimatePresence } from 'framer-motion';
 import Resume from '../portfolio/Resume';
 import Projects from '../portfolio/Projects';
+import Experience from "../portfolio/Experience"
+import Education from '../portfolio/Education';
+import About from '../portfolio/About';
 
 const navItems = [
   'About',
@@ -16,17 +19,17 @@ const navItems = [
 const SettingsContent: Record<string, React.ReactNode> = {
   About: 
   <div className="text-xl"> 
-    Personalize settings go here
+    <About />
   </div>,
 
   Education: 
   <div className="text-xl"> 
-    User management area
+    <Education />
   </div>,
 
   Experience: 
   <div className="text-xl">
-    Notification toggles and stuff
+    <Experience />
   </div>,
 
   Projects: 

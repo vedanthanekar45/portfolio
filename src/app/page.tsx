@@ -128,8 +128,8 @@ export default function Home() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <MetroTile bgColor="#d86800ff" iconSrc="/blog.svg" text="Blogs and Stories" onClick={handleComingSoon} />
-                        <MetroTile bgColor="#7a00aaff" iconSrc="/resume.png" text="Screenplays" onClick={handleComingSoon} />
+                        <MetroTile bgColor="#d86800ff" iconSrc="/blog.svg" text="Blogs and Stories" link="/blogs" />
+                        <MetroTile bgColor="#7a00aaff" iconSrc="/resume.png" text="Screenplays" link="/blogs" />
                         <MetroTileSquare bgColor="#008299ff" iconSrc="/photos.png" text="Photos" link="https://www.instagram.com/vedanthanekar/" />
                     </motion.div>
                 </div>
