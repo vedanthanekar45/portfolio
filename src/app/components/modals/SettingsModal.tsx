@@ -9,7 +9,6 @@ const navItems = [
   'About',
   'Education',
   'Experience',
-  'Skills',
   'Projects',
   'Resume',
 ];
@@ -28,11 +27,6 @@ const SettingsContent: Record<string, React.ReactNode> = {
   Experience: 
   <div className="text-xl">
     Notification toggles and stuff
-  </div>,
-
-  Skills: 
-  <div className="text-xl">
-    Search options
   </div>,
 
   Projects: 
