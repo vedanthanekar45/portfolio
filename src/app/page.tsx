@@ -1,5 +1,5 @@
 'use client';
-import { motion, Variant } from 'framer-motion';
+import { motion, TargetAndTransition } from 'framer-motion';
 import MetroTile from './components/MetroTile';
 import MetroTileSquare from './components/MetroTileSquare';
 import SettingsModal from './components/modals/SettingsModal';
@@ -7,9 +7,15 @@ import ModalLoading from './components/modals/ModalLoading';
 import { useState } from 'react';
 
 export default function Home() {
-    const tileColumnVariants = {
+
+    type CustomVariants = {
+        hidden: TargetAndTransition;
+        visible: (delay: number) => TargetAndTransition;
+    };
+
+    const tileColumnVariants: CustomVariants = {
         hidden: { scale: 0.8, opacity: 0 },
-        visible: (delay: number): any => ({
+        visible: (delay: number) => ({
             scale: 1,
             opacity: 1,
             transition: {
