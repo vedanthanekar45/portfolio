@@ -1,6 +1,7 @@
+'use client'
 type MetroTileProps = {
     bgColor: string;
-    iconSrc: string;
+    iconSrc?: string;
     text: string;
     link: string;
     className?: string;

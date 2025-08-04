@@ -29,3 +29,12 @@ body {
     background-attachment: fixed;
     background-image: url(../../public/back3.png);
 }
+
+.fade-in {
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
