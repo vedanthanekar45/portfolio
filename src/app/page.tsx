@@ -152,6 +152,7 @@ export default function Home() {
               iconSrc="/blog.svg"
               text="Blogs and Stories"
               link="https://medium.com/@vedanthanekar45"
+              target="_blank"
             />
             <MetroTile
               bgColor="#7a00aaff"
