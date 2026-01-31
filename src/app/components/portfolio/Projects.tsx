@@ -8,7 +8,12 @@ import { FaReact } from "react-icons/fa";
 import { IoOpenOutline } from "react-icons/io5";
 import { SiDjango } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { FaGolang } from "react-icons/fa6";
+import { FaPython } from "react-icons/fa";
+import { FaDigitalOcean } from "react-icons/fa";
+import { SiFastapi } from "react-icons/si";
+import { IoLogoJavascript } from "react-icons/io5";
+import { SiThreedotjs } from "react-icons/si";
+import { RiSvelteFill } from "react-icons/ri";
 
 export default function Projects() {
   return (
@@ -61,7 +66,7 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LuGithub className="text-black text-3xl mr-8 font-thin" />
+              <LuGithub className="text-black text-3xl mr-4 font-thin" />
             </a>
             <a
               href="https://booktalk-66lw.onrender.com/"
@@ -123,7 +128,10 @@ export default function Projects() {
           <div className="flex items-center space-x-6">
             <h1 className="text-black text-3xl">Kinoji</h1>
             <div className="flex items-center space-x-3 mt-[5px] text-2xl">
-              <FaGolang className="text-blue-400" />
+              <FaPython className="text-blue-900" />
+              <SiFastapi className="text-green-700" />
+              <FaDigitalOcean className="text-blue-500" />
+              <RiSvelteFill className="text-orange-600" />
             </div>
           </div>
           <div className="flex">
@@ -157,13 +165,13 @@ export default function Projects() {
           <div className="flex items-center space-x-6">
             <h1 className="text-black text-3xl">Flow.js</h1>
             <div className="flex items-center space-x-3 mt-[5px] text-2xl">
-              <SiDjango className="text-green-800" />
-              <BiLogoPostgresql className="text-blue-700" />
+              <IoLogoJavascript className="text-yellow-400" />
+              <SiThreedotjs className="text-black" />
             </div>
           </div>
           <div className="flex">
             <a
-              href="https://github.com/vedanthanekar45/agora"
+              href="https://github.com/AshutoshKhadse23/flow-js"
               target="_blank"
               rel="noopener noreferrer"
             >

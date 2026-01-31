@@ -3,7 +3,6 @@ import { motion, TargetAndTransition } from "framer-motion";
 import MetroTile from "./components/MetroTile";
 import MetroTileSquare from "./components/MetroTileSquare";
 import SettingsModal from "./components/modals/SettingsModal";
-import ModalLoading from "./components/modals/ModalLoading";
 import { useState } from "react";
 
 export default function Home() {
@@ -25,45 +24,8 @@ export default function Home() {
     }),
   };
 
-  const [loading, setLoading] = useState(false);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [initialSection, setInitialSection] = useState("About");
-
-  const handleTileClick = (section: string) => {
-    setInitialSection(section);
-    setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
-      setSettingsOpen(true);
-    }, 1500);
-  };
-
-  const getColorForSection = (section: string) => {
-    switch (section) {
-      case "About":
-        return "#cc4a04";
-      case "Resume":
-        return "#006912ff";
-      case "Projects":
-        return "#e90101ff";
-      default:
-        return "#000";
-    }
-  };
-
-  const getIconForSection = (section: string) => {
-    switch (section) {
-      case "About":
-        return "/about.png";
-      case "Resume":
-        return "/resume.png";
-      case "Projects":
-        return "/code.png";
-      default:
-        return "";
-    }
-  };
 
   return (
     <>
@@ -82,10 +44,12 @@ export default function Home() {
               </h2>
               <img
                 alt="my photo"
-                src="/photo.jpeg"
-                className="w-10 h-10
-                                border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]"
-                onClick={() => handleTileClick("About")}
+                src="/photo.jpg"
+                className="w-10 h-10 border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]"
+                onClick={() => {
+                  setSettingsOpen(true);
+                  setInitialSection("About");
+                }}
               />
             </div>
           </div>
@@ -208,20 +172,6 @@ export default function Home() {
           onClose={() => setSettingsOpen(false)}
           initialSection={initialSection}
         />
-        {loading && (
-          <ModalLoading
-            bgColor={getColorForSection(initialSection)}
-            iconSrc={getIconForSection(initialSection)}
-          />
-        )}
-
-        {!loading && (
-          <SettingsModal
-            isOpen={isSettingsOpen}
-            initialSection={initialSection}
-            onClose={() => setSettingsOpen(false)}
-          />
-        )}
       </div>
     </>
   );

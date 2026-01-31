@@ -3,17 +3,21 @@ export default function About() {
     <div className="mt-24">
       <h1 className="text-black text-2xl">
         <p>
-          Hello! I&apos;m Vedant Thanekar, a final year student at K. K. Wagh
-          Institute of Engineering Education and Research, pursuing my Bachelors
-          in Information Technology. I possess handss-on experience building and
-          shipping full-stack, backend systems, and ETL pipelines. I am
-          comfortable working in Linux environments, designing tools and
-          debugging complex systems. Passionate about tackling real-world
-          engineering problems.
+          Hi, I’m Vedant Thanekar, a final-year Information Technology student
+          who enjoys building systems end-to-end, from backend APIs and data
+          pipelines to production deployments. I’ve worked on full-stack and
+          backend projects involving ETL pipelines, relational databases, and
+          cloud infrastructure, and I’m comfortable working in Linux
+          environments, debugging complex issues, and making trade-offs that
+          keep systems simple and reliable.
+        </p>
+        <p className="mt-8">
+          Apart from tech, I am also interested in Films, TV shows, I also write
+          sometimes, I am working on a TV show idea.
         </p>
 
-        {/*<p className="mt-12">
-          If you&apos;re a film buff too, you can checkout my{" "}
+        <p className="mt-8">
+          You can also checkout my{" "}
           <a href="https://boxd.it/7kC6P" className="text-blue-500 underline">
             Letterboxd
           </a>{" "}
@@ -25,7 +29,7 @@ export default function About() {
             Serializd
           </a>
           .
-        </p>*/}
+        </p>
       </h1>
     </div>
   );

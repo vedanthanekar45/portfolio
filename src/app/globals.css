@@ -3,27 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
 }
 
 @font-face {
-  font-family: 'Segoe UI Local';
-  src: url('../app/fonts/segoe-ui-light.ttf') format('truetype');
-  font-weight: 300;
+    font-family: "Segoe UI Local";
+    src: url("../app/fonts/segoe-ui-light.ttf") format("truetype");
+    font-weight: 300;
 }
 
 .segoe {
-  font-family: "Segoe UI Local"
+    font-family: "Segoe UI Local";
 }
-
 
 body {
     background-attachment: fixed;
@@ -31,10 +30,14 @@ body {
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-in forwards;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
