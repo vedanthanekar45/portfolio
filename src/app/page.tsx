@@ -40,7 +40,7 @@ export default function Home() {
             <h1 className="segoe text-5xl ml-40 mt-16 text-white">Start</h1>
             <div className="mt-20 mr-20 flex">
               <h2 className="segoe text-white text-3xl mr-6">
-                Vedant Thanekar
+                Vedant Thanekar (Software Developer)
               </h2>
               <img
                 alt="my photo"
