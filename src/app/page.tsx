@@ -1,11 +1,16 @@
 "use client";
+
 import { motion, TargetAndTransition } from "framer-motion";
+import { useState } from "react";
+
+// Components
 import MetroTile from "./components/MetroTile";
 import MetroTileSquare from "./components/MetroTileSquare";
 import SettingsModal from "./components/modals/SettingsModal";
-import { useState } from "react";
+import MobileStartScreen from "./components/MobileStartScreen"; // <--- Make sure path is correct
 
 export default function Home() {
+  // --- DESKTOP ANIMATION VARIANTS ---
   type CustomVariants = {
     hidden: TargetAndTransition;
     visible: (delay: number) => TargetAndTransition;
@@ -24,12 +29,23 @@ export default function Home() {
     }),
   };
 
+  // --- DESKTOP STATE ---
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [initialSection, setInitialSection] = useState("About");
 
   return (
     <>
-      <div>
+      {/* ========================================= */}
+      {/* 📱 MOBILE LAYOUT (Visible < 768px)       */}
+      {/* ========================================= */}
+      <div className="block md:hidden">
+        <MobileStartScreen />
+      </div>
+
+      {/* ========================================= */}
+      {/* 💻 DESKTOP LAYOUT (Visible >= 768px)      */}
+      {/* ========================================= */}
+      <div className="hidden md:block">
         <motion.h1
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -45,7 +61,7 @@ export default function Home() {
               <img
                 alt="my photo"
                 src="/photo.jpg"
-                className="w-10 h-10 border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)]"
+                className="w-10 h-10 border-2 border-transparent transition-all duration-200 ease-in-out hover:border-white hover:shadow-[0_0_5px_rgba(255,255,255,0.4)] cursor-pointer"
                 onClick={() => {
                   setSettingsOpen(true);
                   setInitialSection("About");
@@ -56,6 +72,7 @@ export default function Home() {
         </motion.h1>
 
         <div className="flex mx-40">
+          {/* COLUMN 1 */}
           <motion.div
             custom={0.3}
             initial="hidden"
@@ -88,6 +105,7 @@ export default function Home() {
             />
           </motion.div>
 
+          {/* COLUMN 2 */}
           <motion.div
             custom={0.4}
             variants={tileColumnVariants}
@@ -140,6 +158,7 @@ export default function Home() {
             </div>
           </motion.div>
 
+          {/* COLUMN 3 */}
           <motion.div
             className="ml-96"
             custom={0.5}
@@ -168,6 +187,7 @@ export default function Home() {
             />
           </motion.div>
         </div>
+
         <SettingsModal
           isOpen={isSettingsOpen}
           onClose={() => setSettingsOpen(false)}
