@@ -1,33 +1,3 @@
-// "use client";
-
-// import { useEffect } from "react";
-// import { useRouter } from "next/navigation";
-
-// const NotFound = () => {
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     const timer = setTimeout(() => {
-//       router.push("/");
-//     }, 5000);
-
-//     return () => clearTimeout(timer);
-//   }, [router]);
-
-//   return (
-//     <div className="flex items-center justify-center h-screen bg-[#0078D7] text-white font-sans segoe">
-//       <div className="max-w-4xl p-5 text-left">
-//         <div className="text-9xl mb-8">:(</div>
-//         <p className="text-4xl mb-4">
-//           Your Portfolio ran into a problem and needs to restart.
-//         </p>
-//         <p className="text-4xl">Error Code: HIRE_ME_IMMEDIATELY</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default NotFound;
 "use client";
 
 import { useEffect, useState } from "react";
