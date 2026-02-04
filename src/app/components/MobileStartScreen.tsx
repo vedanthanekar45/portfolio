@@ -195,7 +195,7 @@ export default function MobileStartScreen() {
 
       {activeModal && (
         <MobileProfile
-          onClose={() => setActiveModal(null)}
+          onClose={() => setActiveModal("")}
           initialTab={activeModal}
         />
       )}
