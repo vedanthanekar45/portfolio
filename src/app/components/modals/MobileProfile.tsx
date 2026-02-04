@@ -4,8 +4,15 @@ import { useState } from "react";
 import { ArrowLeft, MoreHorizontal, MapPin, Code } from "lucide-react";
 import Link from "next/link";
 
-export default function MobileProfile({ onClose, initialTab = "profile" }) {
-  // FIX: Use 'initialTab' here instead of hardcoding "profile"
+interface ProfileModalProps {
+  onClose: () => void;
+  initialTab?: string;
+}
+
+export default function MobileProfile({
+  onClose,
+  initialTab = "profile",
+}: ProfileModalProps) {
   const [activeTab, setActiveTab] = useState(initialTab);
 
   return (
