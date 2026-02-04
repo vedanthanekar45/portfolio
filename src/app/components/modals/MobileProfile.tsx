@@ -6,7 +6,7 @@ import { ArrowLeft, MoreHorizontal, MapPin, Github, Code } from "lucide-react";
 import Link from "next/link";
 
 // 1. Accept the onClose prop
-export default function MobilePivotLayout({ onClose }) {
+export default function MobileProfile({ onClose, initialTab = "profile" }) {
   const [activeTab, setActiveTab] = useState("profile");
 
   return (

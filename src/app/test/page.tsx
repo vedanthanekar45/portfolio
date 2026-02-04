@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
-import MobilePivotLayout from "../components/modals/MobileProfile";
+import MobileProfile from "../components/modals/MobileProfile";
 
 const METRO_COLORS = [
   "#0078D7",
@@ -18,8 +18,12 @@ const METRO_COLORS = [
 ];
 
 export default function MobileStartScreen() {
-  const [showProfile, setShowProfile] = useState(false);
+  const [activeModal, setActiveModal] = useState(null);
   const [accentColor, setAccentColor] = useState(METRO_COLORS[0]);
+
+  const openModal = (tabName) => {
+    setActiveModal(tabName);
+  };
 
   useEffect(() => {
     const randomColor =
@@ -53,7 +57,7 @@ export default function MobileStartScreen() {
         </a>
 
         <div
-          onClick={() => setShowProfile(true)}
+          onClick={() => openModal("profile")}
           className="col-span-2 w-full aspect-square relative flex flex-col items-center justify-center hover:scale-[0.98] transition-transform cursor-pointer active:opacity-90"
           style={{ backgroundColor: accentColor }}
         >
@@ -72,6 +76,7 @@ export default function MobileStartScreen() {
         </a>
 
         <div
+          onClick={() => openModal("projects")}
           className="col-span-4 w-full aspect-[2/1] relative flex flex-col items-center justify-center group hover:scale-[0.98] transition-transform cursor-pointer overflow-hidden"
           style={{ backgroundColor: accentColor }}
         >
@@ -140,13 +145,19 @@ export default function MobileStartScreen() {
       </div>
 
       {/* Bottom Arrow */}
-      <div className="mt-8 flex justify-end pr-2 animate-bounce opacity-50">
+      <div
+        className="mt-8 flex justify-end pr-2 animate-bounce opacity-50"
+        onClick={() => openModal("profile")}
+      >
         <ArrowRight className="w-6 h-6 border rounded-full border-white p-1" />
       </div>
 
       {/* --- Modal --- */}
-      {showProfile && (
-        <MobilePivotLayout onClose={() => setShowProfile(false)} />
+      {activeModal && (
+        <MobileProfile
+          onClose={() => setActiveModal(null)}
+          initialTab={activeModal} // <--- Pass the specific tab here
+        />
       )}
     </div>
   );
