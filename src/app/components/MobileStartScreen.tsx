@@ -18,7 +18,7 @@ const METRO_COLORS = [
 ];
 
 export default function MobileStartScreen() {
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeModal, setActiveModal] = useState("");
   const [accentColor, setAccentColor] = useState(METRO_COLORS[0]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function MobileStartScreen() {
     setAccentColor(randomColor);
   }, []);
 
-  const openModal = (tabName) => {
+  const openModal = (tabName: string) => {
     setActiveModal(tabName);
   };
 
