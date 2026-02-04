@@ -29,9 +29,7 @@ const NotFound = () => {
       </div>
 
       <div className="text-xl md:text-3xl font-light leading-snug max-w-6xl mb-10">
-        <p className="mt-2">
-          Oopsie. You found a page I haven&apos;t built yet.
-        </p>
+        <p className="mt-2">Oops. You found a page I haven&apos;t built yet.</p>
         <p className="mt-2">
           I was going to do it, but I started a new side project instead.
         </p>
