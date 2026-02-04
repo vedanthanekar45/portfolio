@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, MoreHorizontal, MapPin, Github, Code } from "lucide-react";
-// We don't need Link for the back button anymore
+import { ArrowLeft, MoreHorizontal, MapPin, Code } from "lucide-react";
 import Link from "next/link";
 
-// 1. Accept the onClose prop
 export default function MobileProfile({ onClose, initialTab = "profile" }) {
-  const [activeTab, setActiveTab] = useState("profile");
+  // FIX: Use 'initialTab' here instead of hardcoding "profile"
+  const [activeTab, setActiveTab] = useState(initialTab);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black text-white font-sans segoe overflow-hidden select-none animate-in slide-in-from-bottom-10 duration-200">
+    <div className="fixed inset-0 z-50 bg-black text-white font-sans segoe overflow-hidden select-none animate-in slide-in-from-right duration-300 ease-out">
+      {/* --- 1. HEADER (Pivot Control) --- */}
       <div className="mt-8 mb-6 pb-6 pl-5 flex items-baseline gap-5 whitespace-nowrap overflow-x-hidden">
         <button
           onClick={() => setActiveTab("profile")}
@@ -151,7 +151,6 @@ export default function MobileProfile({ onClose, initialTab = "profile" }) {
           <MapPin className="w-5 h-5" />
         </button>
 
-        {/* 3. CHANGED: Uses onClick={onClose} instead of Link href="/" */}
         <button
           onClick={onClose}
           className="flex flex-col items-center justify-center w-10 h-10 rounded-full border-2 border-white opacity-80 active:bg-white active:text-black transition-colors"
