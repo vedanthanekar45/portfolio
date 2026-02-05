@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, Briefcase, GraduationCap } from "lucide-react";
+import { ArrowLeft, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 interface ProfileModalProps {
   onClose: () => void;
   initialTab?: string;
+  accentColor: string;
 }
 
 export default function MobileProfile({
   onClose,
   initialTab = "profile",
+  accentColor,
 }: ProfileModalProps) {
   const [activeTab, setActiveTab] = useState(initialTab);
 
@@ -60,7 +62,8 @@ export default function MobileProfile({
               <h4 className="text-3xl font-light lowercase">send email</h4>
               <a
                 href="mailto:vedanthanekar45@gmail.com"
-                className="text-sm font-semibold text-[#E81123] mt-0.5 block"
+                className="text-sm font-semibold mt-0.5 block"
+                style={{ color: accentColor }}
               >
                 vedanthanekar45@gmail.com
               </a>
@@ -70,7 +73,8 @@ export default function MobileProfile({
               <h4 className="text-3xl font-light lowercase">connect</h4>
               <Link
                 href="https://linkedin.com/in/vedant-thanekar"
-                className="text-sm font-semibold text-[#E81123] mt-0.5 block"
+                className="text-sm font-semibold mt-0.5 block"
+                style={{ color: accentColor }}
               >
                 LinkedIn Profile
               </Link>
@@ -85,7 +89,10 @@ export default function MobileProfile({
               <div className="flex items-center gap-3 mb-1">
                 <h4 className="text-3xl font-light lowercase">ignaite, llc</h4>
               </div>
-              <p className="text-sm font-semibold text-[#E81123] mb-1">
+              <p
+                className="text-sm font-semibold mb-1"
+                style={{ color: accentColor }}
+              >
                 software developer intern
               </p>
               <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">
@@ -103,7 +110,10 @@ export default function MobileProfile({
               <div className="flex items-center gap-3 mb-1">
                 <h4 className="text-3xl font-light lowercase">commusync</h4>
               </div>
-              <p className="text-sm font-semibold text-[#E81123] mb-1">
+              <p
+                className="text-sm font-semibold mb-1"
+                style={{ color: accentColor }}
+              >
                 mern developer intern
               </p>
               <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">
@@ -137,19 +147,22 @@ export default function MobileProfile({
               <div className="flex gap-4">
                 <a
                   href="https://github.com/vedanthanekar45/kinoji"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   view code
                 </a>
                 <a
                   href="https://kinoji.vercel.app"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   demo
                 </a>
                 <a
                   href="https://medium.com/@vedanthanekar45/making-a-film-data-visualizing-platform-using-etl-fastapi-svelte-and-digitalocean-f1cb23fcfb81"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   blog
                 </a>
@@ -172,13 +185,15 @@ export default function MobileProfile({
               <div className="flex gap-4">
                 <a
                   href="https://github.com/vedanthanekar45/NovelNest"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   view code
                 </a>
                 <Link
                   href="https://novlnest-tr48.onrender.com"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   demo
                 </Link>
@@ -201,13 +216,15 @@ export default function MobileProfile({
               <div className="flex gap-4">
                 <a
                   href="https://github.com/vedanthanekar45/NovelNest"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   view code
                 </a>
                 <Link
                   href="https://novlnest-tr48.onrender.com"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   demo
                 </Link>
@@ -229,13 +246,15 @@ export default function MobileProfile({
               <div className="flex gap-4">
                 <a
                   href="https://github.com/vedanthanekar45/BookTok"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   view code
                 </a>
                 <Link
                   href="https://booktalk-66lw.onrender.com"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   demo
                 </Link>
@@ -253,12 +272,16 @@ export default function MobileProfile({
                 context transfer engine for AI workflows written in Go.
               </p>
               <div className="flex gap-4">
-                <span className="text-sm font-semibold text-[#E81123] opacity-60">
+                <span
+                  className="text-sm font-semibold opacity-60"
+                  style={{ color: accentColor }}
+                >
                   in development
                 </span>
                 <Link
                   href="https://github.com/vedanthanekar45/ferry"
-                  className="text-sm font-semibold text-[#E81123]"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
                 >
                   view code
                 </Link>
@@ -277,7 +300,10 @@ export default function MobileProfile({
                 </h4>
                 <GraduationCap className="w-5 h-5 opacity-60" />
               </div>
-              <p className="text-sm font-semibold text-[#E81123] mb-1">
+              <p
+                className="text-sm font-semibold mb-1"
+                style={{ color: accentColor }}
+              >
                 Information Technology
               </p>
               <p className="text-sm text-gray-400 mb-2">

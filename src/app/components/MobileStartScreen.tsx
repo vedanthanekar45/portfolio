@@ -270,6 +270,7 @@ export default function MobileStartScreen() {
         <MobileProfile
           onClose={() => setActiveModal("")}
           initialTab={activeModal}
+          accentColor={accentColor}
         />
       )}
     </div>
