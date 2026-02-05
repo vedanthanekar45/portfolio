@@ -37,7 +37,7 @@ export default function MobileProfile({
         {renderHeaderBtn("education", "education")}
       </div>
 
-      <div className="pl-5 pr-4 pb-24 h-[calc(100vh-180px)] overflow-y-auto no-scrollbar">
+      <div className="pl-5 pr-4 pb-40 h-[calc(100vh-180px)] overflow-y-auto no-scrollbar">
         {activeTab === "profile" && (
           <div className="flex flex-col gap-8 animate-fade-in">
             <div className="mb-2">
@@ -125,6 +125,11 @@ export default function MobileProfile({
               <div className="flex items-center gap-3 mb-1">
                 <h4 className="text-3xl font-light lowercase">kinoji</h4>
               </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-400">
+                  stack: python, fastapi, svelte, digitalocean
+                </p>
+              </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
                 a data engineering and analytics system with AI integration, to
                 map trends in the film industry.
@@ -155,6 +160,11 @@ export default function MobileProfile({
               <div className="flex items-center gap-3 mb-1">
                 <h4 className="text-3xl font-light lowercase">flow.js</h4>
               </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-400">
+                  stack: javascript, three.js
+                </p>
+              </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
                 a javascript library built on top of three.js that abstracts and
                 simplifies 3D rendering pipelines on browsers.
@@ -179,6 +189,11 @@ export default function MobileProfile({
               <div className="flex items-center gap-3 mb-1">
                 <h4 className="text-3xl font-light lowercase">novel nest</h4>
               </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-400">
+                  stack: react, django, postgresql
+                </p>
+              </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
                 a full-stack book cataloging platform where users can track,
                 review, and organize their reading lists.
@@ -200,21 +215,40 @@ export default function MobileProfile({
             </div>
 
             <div className="group">
-              <h4 className="text-3xl font-light lowercase">the wanderer</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">booktalk</h4>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-gray-400">
+                  stack: mongodb, express, react, node.js
+                </p>
+              </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
-                travel companion app. Backend infrastructure with Express and
-                MySQL.
+                a minimalistic chat application using websockets.
               </p>
-              <Link
-                href="https://github.com/vedanthanekar45/the-wanderer"
-                className="text-sm font-semibold text-[#E81123]"
-              >
-                view code
-              </Link>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/vedanthanekar45/BookTok"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  view code
+                </a>
+                <Link
+                  href="https://booktalk-66lw.onrender.com"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  demo
+                </Link>
+              </div>
             </div>
 
             <div className="group">
               <h4 className="text-3xl font-light lowercase">ferry</h4>
+              <div>
+                <p className="text-sm font-semibold text-gray-400">
+                  stack: golang, net/http
+                </p>
+              </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
                 context transfer engine for AI workflows written in Go.
               </p>
@@ -258,11 +292,7 @@ export default function MobileProfile({
         )}
       </div>
 
-      <div className="absolute bottom-0 w-full bg-[#1F1F1F] h-16 flex items-center justify-center gap-12 border-t border-gray-800 z-50">
-        <button className="flex flex-col items-center justify-center w-10 h-10 rounded-full border-2 border-white opacity-80 active:bg-white active:text-black transition-colors">
-          <Briefcase className="w-5 h-5" />
-        </button>
-
+      <div className="absolute bottom-0 w-full bg-[#1F1F1F] h-16 flex items-center justify-center border-t border-gray-800 z-50">
         <button
           onClick={onClose}
           className="flex flex-col items-center justify-center w-10 h-10 rounded-full border-2 border-white opacity-80 active:bg-white active:text-black transition-colors"
