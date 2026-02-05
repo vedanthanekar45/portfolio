@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, Code, Briefcase, GraduationCap } from "lucide-react";
+import { ArrowLeft, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 interface ProfileModalProps {
