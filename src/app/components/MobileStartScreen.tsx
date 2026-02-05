@@ -2,7 +2,36 @@
 
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import MobileProfile from "../components/modals/MobileProfile";
+
+// 1. ANIMATION VARIANTS
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05, // Cascades the tiles in
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const tileVariants = {
+  hidden: { opacity: 0, rotateX: 90, y: 50 }, // Start folded down
+  visible: {
+    opacity: 1,
+    rotateX: 0,
+    y: 0,
+    transition: { type: "spring", stiffness: 150, damping: 20 },
+  },
+};
+
+const tapAnimation = {
+  scale: 0.95,
+  rotateX: 10, // The 3D Tilt Press
+  transition: { duration: 0.1 },
+};
 
 const METRO_COLORS = [
   "#0078D7",
@@ -20,6 +49,20 @@ const METRO_COLORS = [
 export default function MobileStartScreen() {
   const [activeModal, setActiveModal] = useState("");
   const [accentColor, setAccentColor] = useState(METRO_COLORS[0]);
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      );
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const randomColor =
@@ -34,19 +77,29 @@ export default function MobileStartScreen() {
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-y-auto select-none flex flex-col segoe items-center">
       <div className="w-full px-4 py-6 sm:max-w-sm sm:px-5 mx-auto">
-        {/* Header */}
-        <div className="mb-5 flex justify-between items-end pl-1 animate-fade-in-down">
-          <h1 className="text-4xl font-light tracking-wide">Start</h1>
-          <div className="text-2xl font-light opacity-80 mb-1">
-            Vedant Thanekar
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-full flex justify-center py-1 mb-2 opacity-60"
+        >
+          <span className="text-xs tracking-wider">{time}</span>
+        </motion.div>
 
-        <div className="grid grid-cols-4 gap-2.5">
-          <a
+        {/* Grid Container (Animated) */}
+        <motion.div
+          className="grid grid-cols-4 gap-2.5 perspective-1000" // Added perspective for 3D effect
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* --- Mail --- */}
+          <motion.a
             href="mailto:vedanthanekar45@gmail.com"
-            className="col-span-4 aspect-[2/1] relative flex flex-col items-center justify-center hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+            className="col-span-4 aspect-[2/1] relative flex flex-col items-center justify-center cursor-pointer origin-center"
             style={{ backgroundColor: accentColor }}
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/mail.png"
@@ -59,12 +112,15 @@ export default function MobileStartScreen() {
             <span className="absolute top-2 right-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
               3
             </span>
-          </a>
+          </motion.a>
 
-          <div
+          {/* --- About --- */}
+          <motion.div
             onClick={() => openModal("profile")}
-            className="col-span-2 aspect-square relative flex flex-col items-center justify-center hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+            className="col-span-2 aspect-square relative flex flex-col items-center justify-center cursor-pointer origin-center"
             style={{ backgroundColor: accentColor }}
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/about.png"
@@ -74,13 +130,16 @@ export default function MobileStartScreen() {
             <span className="absolute bottom-2 left-3 text-sm font-normal">
               About
             </span>
-          </div>
+          </motion.div>
 
-          <a
+          {/* --- LinkedIn --- */}
+          <motion.a
             href="https://linkedin.com/in/vedant-thanekar"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-2 bg-[#0077B5] aspect-square relative flex flex-col items-center justify-center hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+            className="col-span-2 bg-[#0077B5] aspect-square relative flex flex-col items-center justify-center cursor-pointer origin-center"
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/linkedin.svg"
@@ -90,12 +149,15 @@ export default function MobileStartScreen() {
             <span className="absolute bottom-2 left-3 text-sm font-normal">
               LinkedIn
             </span>
-          </a>
+          </motion.a>
 
-          <div
+          {/* --- Projects --- */}
+          <motion.div
             onClick={() => openModal("projects")}
-            className="col-span-4 aspect-[2/1] relative flex flex-col items-center justify-center group hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer overflow-hidden"
+            className="col-span-4 aspect-[2/1] relative flex flex-col items-center justify-center group overflow-hidden cursor-pointer origin-center"
             style={{ backgroundColor: accentColor }}
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/code.png"
@@ -108,14 +170,17 @@ export default function MobileStartScreen() {
             <div className="absolute bottom-2 right-3 flex items-center gap-1 text-xs font-medium opacity-80">
               View All <ArrowRight className="w-3 h-3" />
             </div>
-          </div>
+          </motion.div>
 
-          <a
+          {/* --- Resume --- */}
+          <motion.a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-2 aspect-square relative flex flex-col items-center justify-center hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+            className="col-span-2 aspect-square relative flex flex-col items-center justify-center cursor-pointer origin-center"
             style={{ backgroundColor: accentColor }}
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/resume.png"
@@ -125,13 +190,16 @@ export default function MobileStartScreen() {
             <span className="absolute bottom-2 left-3 text-sm font-normal">
               Resume
             </span>
-          </a>
+          </motion.a>
 
-          <a
+          {/* --- GitHub --- */}
+          <motion.a
             href="https://github.com/vedanthanekar45"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-2 bg-[#181717] border border-gray-800 aspect-square relative flex flex-col items-center justify-center hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer"
+            className="col-span-2 bg-[#181717] border border-gray-800 aspect-square relative flex flex-col items-center justify-center cursor-pointer origin-center"
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/github.png"
@@ -141,56 +209,68 @@ export default function MobileStartScreen() {
             <div className="absolute bottom-2 left-3">
               <span className="block text-sm font-normal">GitHub</span>
             </div>
-          </a>
+          </motion.a>
 
-          <a
+          {/* --- X / Twitter --- */}
+          <motion.a
             href="https://x.com/ThanekarVedant"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-1 bg-black border border-gray-700 aspect-square flex items-center justify-center hover:bg-gray-900 cursor-pointer relative"
+            className="col-span-1 bg-black border border-gray-700 aspect-square flex items-center justify-center cursor-pointer relative origin-center"
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img src="/x.svg" alt="X" className="w-6 h-6 object-contain" />
-          </a>
+          </motion.a>
 
-          <a
+          {/* --- Spotify --- */}
+          <motion.a
             href="https://open.spotify.com/user/YOUR_USER"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-1 bg-[#1DB954] aspect-square flex items-center justify-center hover:opacity-90 cursor-pointer relative"
+            className="col-span-1 bg-[#1DB954] aspect-square flex items-center justify-center cursor-pointer relative origin-center"
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/spotify.png"
               alt="Spotify"
               className="w-6 h-6 object-contain"
             />
-          </a>
+          </motion.a>
 
-          <a
+          {/* --- Medium --- */}
+          <motion.a
             href="https://medium.com/@vedanthanekar45"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-1 bg-white aspect-square flex items-center justify-center hover:opacity-90 cursor-pointer relative"
+            className="col-span-1 bg-white aspect-square flex items-center justify-center cursor-pointer relative origin-center"
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/medium.svg"
               alt="Medium"
               className="w-8 h-8 object-contain"
             />
-          </a>
+          </motion.a>
 
-          <a
+          {/* --- Letterboxd --- */}
+          <motion.a
             href="https://letterboxd.com/vedanthanekar"
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-1 bg-blue-950 aspect-square flex items-center justify-center hover:opacity-90 cursor-pointer relative"
+            className="col-span-1 bg-blue-950 aspect-square flex items-center justify-center cursor-pointer relative origin-center"
+            variants={tileVariants}
+            whileTap={tapAnimation}
           >
             <img
               src="/letterboxd.png"
-              alt="Medium"
+              alt="Letterboxd"
               className="w-16 h-16 object-contain"
             />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
 
       {activeModal && (
