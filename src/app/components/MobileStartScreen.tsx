@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import MobileProfile from "../components/modals/MobileProfile";
 
@@ -15,7 +14,7 @@ const containerVariants = {
       delayChildren: 0.1,
     },
   },
-};
+} as const;
 
 const tileVariants = {
   hidden: { opacity: 0, rotateX: 90, y: 50 }, // Start folded down
@@ -25,13 +24,13 @@ const tileVariants = {
     y: 0,
     transition: { type: "spring", stiffness: 150, damping: 20 },
   },
-};
+} as const;
 
 const tapAnimation = {
   scale: 0.95,
   rotateX: 10, // The 3D Tilt Press
   transition: { duration: 0.1 },
-};
+} as const;
 
 const METRO_COLORS = [
   "#0078D7",
@@ -109,9 +108,6 @@ export default function MobileStartScreen() {
             <span className="absolute bottom-2 left-3 text-base font-normal">
               Mail
             </span>
-            <span className="absolute top-2 right-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">
-              3
-            </span>
           </motion.a>
 
           {/* --- About --- */}
@@ -167,9 +163,6 @@ export default function MobileStartScreen() {
             <span className="absolute bottom-2 left-3 text-base font-normal">
               Projects
             </span>
-            <div className="absolute bottom-2 right-3 flex items-center gap-1 text-xs font-medium opacity-80">
-              View All <ArrowRight className="w-3 h-3" />
-            </div>
           </motion.div>
 
           {/* --- Resume --- */}

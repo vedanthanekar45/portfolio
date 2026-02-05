@@ -35,16 +35,9 @@ export default function Home() {
 
   return (
     <>
-      {/* ========================================= */}
-      {/* 📱 MOBILE LAYOUT (Visible < 768px)       */}
-      {/* ========================================= */}
       <div className="block md:hidden">
         <MobileStartScreen />
       </div>
-
-      {/* ========================================= */}
-      {/* 💻 DESKTOP LAYOUT (Visible >= 768px)      */}
-      {/* ========================================= */}
       <div className="hidden md:block">
         <motion.h1
           initial={{ x: 200, opacity: 0 }}
@@ -56,7 +49,7 @@ export default function Home() {
             <h1 className="segoe text-5xl ml-40 mt-16 text-white">Start</h1>
             <div className="mt-20 mr-20 flex">
               <h2 className="segoe text-white text-3xl mr-6">
-                Vedant Thanekar (Software Developer)
+                Vedant Thanekar
               </h2>
               <img
                 alt="my photo"

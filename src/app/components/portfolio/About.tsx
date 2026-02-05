@@ -4,16 +4,17 @@ export default function About() {
       <h1 className="text-black text-2xl">
         <p>
           Hi, I’m Vedant Thanekar, a final-year Information Technology student
-          who enjoys building systems end-to-end, from backend APIs and data
-          pipelines to production deployments. I’ve worked on full-stack and
-          backend projects involving ETL pipelines, relational databases, and
-          cloud infrastructure, and I’m comfortable working in Linux
-          environments, debugging complex issues, and making trade-offs that
-          keep systems simple and reliable.
+          who enjoys building systems, from backend APIs and data pipelines to
+          production deployments. I’ve worked on full-stack and backend projects
+          involving ETL pipelines, relational databases, and cloud
+          infrastructure.
         </p>
         <p className="mt-8">
-          Apart from tech, I am also interested in Films, TV shows, I also write
-          sometimes, I am working on a TV show idea.
+          Apart from tech, I am also interested in Films, TV shows. I love
+          telling stories, I also write sometimes. Books are a big part of how I
+          think and feel about the world. What drives me the most is curiosity.
+          I like learning how things are made, whether I&apos;m writing, reading
+          or coding, I always love chasing that feeling.
         </p>
 
         <p className="mt-8">

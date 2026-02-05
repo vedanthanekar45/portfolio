@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, MoreHorizontal, MapPin, Code } from "lucide-react";
+import { ArrowLeft, Code, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
 
 interface ProfileModalProps {
@@ -15,36 +15,29 @@ export default function MobileProfile({
 }: ProfileModalProps) {
   const [activeTab, setActiveTab] = useState(initialTab);
 
+  const renderHeaderBtn = (tabName: string, label: string) => (
+    <button
+      onClick={() => setActiveTab(tabName)}
+      className={`transition-all duration-300 ease-out text-left focus:outline-none flex-shrink-0 ${
+        activeTab === tabName
+          ? "text-5xl font-light opacity-100"
+          : "text-5xl font-light text-gray-500 opacity-40 hover:opacity-60"
+      }`}
+    >
+      {label}
+    </button>
+  );
+
   return (
     <div className="fixed inset-0 z-50 bg-black text-white font-sans segoe overflow-hidden select-none animate-in slide-in-from-right duration-300 ease-out">
-      {/* --- 1. HEADER (Pivot Control) --- */}
-      <div className="mt-8 mb-6 pb-6 pl-5 flex items-baseline gap-5 whitespace-nowrap overflow-x-hidden">
-        <button
-          onClick={() => setActiveTab("profile")}
-          className={`transition-all duration-300 ease-out text-left focus:outline-none ${
-            activeTab === "profile"
-              ? "text-6xl font-light opacity-100"
-              : "text-6xl font-light text-gray-500 opacity-40 hover:opacity-60"
-          }`}
-        >
-          profile
-        </button>
-
-        <button
-          onClick={() => setActiveTab("projects")}
-          className={`transition-all duration-300 ease-out text-left focus:outline-none ${
-            activeTab === "projects"
-              ? "text-6xl font-light opacity-100 -ml-2"
-              : "text-6xl font-light text-gray-500 opacity-40 hover:opacity-60"
-          }`}
-        >
-          projects
-        </button>
+      <div className="mt-8 mb-6 pb-6 pl-5 flex items-baseline gap-6 whitespace-nowrap overflow-x-auto no-scrollbar">
+        {renderHeaderBtn("profile", "profile")}
+        {renderHeaderBtn("experience", "experience")}
+        {renderHeaderBtn("projects", "projects")}
+        {renderHeaderBtn("education", "education")}
       </div>
 
-      {/* --- 2. CONTENT AREA --- */}
       <div className="pl-5 pr-4 pb-24 h-[calc(100vh-180px)] overflow-y-auto no-scrollbar">
-        {/* VIEW 1: PROFILE */}
         {activeTab === "profile" && (
           <div className="flex flex-col gap-8 animate-fade-in">
             <div className="mb-2">
@@ -52,110 +45,222 @@ export default function MobileProfile({
                 Vedant Thanekar
               </h3>
               <p className="text-sm text-gray-400 mt-1 leading-snug">
-                "Building systems end-to-end. Backend APIs, Data Pipelines, and
-                Production Deployments."
+                Hi, I’m a final-year Information Technology student who enjoys
+                building systems, from backend APIs and data pipelines to
+                production deployments.
+              </p>
+              <p className="text-sm text-gray-400 mt-3 leading-snug">
+                Apart from tech, I am interested in films and storytelling.
+                Whether I'm writing code or writing stories, I love chasing that
+                feeling of curiosity.
               </p>
             </div>
 
-            {/* Email */}
             <div className="group cursor-pointer">
               <h4 className="text-3xl font-light lowercase">send email</h4>
               <a
-                href="mailto:vedant@example.com"
+                href="mailto:vedanthanekar45@gmail.com"
                 className="text-sm font-semibold text-[#E81123] mt-0.5 block"
               >
-                vedant@example.com
+                vedanthanekar45@gmail.com
               </a>
             </div>
 
-            {/* LinkedIn */}
             <div className="group cursor-pointer">
               <h4 className="text-3xl font-light lowercase">connect</h4>
               <Link
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/vedant-thanekar"
                 className="text-sm font-semibold text-[#E81123] mt-0.5 block"
               >
                 LinkedIn Profile
               </Link>
             </div>
+          </div>
+        )}
 
-            {/* Location */}
-            <div className="group cursor-pointer">
-              <h4 className="text-3xl font-light lowercase">location</h4>
-              <span className="text-sm font-semibold text-[#E81123] mt-0.5 block">
-                India
-              </span>
+        {activeTab === "experience" && (
+          <div className="flex flex-col gap-9 animate-fade-in lowercase">
+            {/* Exp 1 */}
+            <div className="group">
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">ignaite, llc</h4>
+              </div>
+              <p className="text-sm font-semibold text-[#E81123] mb-1">
+                software developer intern
+              </p>
+              <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">
+                Dec 2025 – Present
+              </p>
+              <p className="text-sm text-gray-400 mb-2 leading-snug">
+                Building a Financial Portfolio Optimizer for employees in the
+                United States to help them pick an optimal portfolio for their
+                401k (PF) package. Using FastAPI backend and ETL using
+                Databricks.
+              </p>
+            </div>
+
+            <div className="group">
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">commusync</h4>
+              </div>
+              <p className="text-sm font-semibold text-[#E81123] mb-1">
+                mern developer intern
+              </p>
+              <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">
+                Aug 2025 – Oct 2025
+              </p>
+              <p className="text-sm text-gray-400 leading-snug">
+                A startup developing a modern SaaS platform designed to
+                streamline society and apartment complex management. Developed
+                and implemented frontend, user-facing features for the CommuSync
+                web platform in Next.js and Typescript.
+              </p>
             </div>
           </div>
         )}
 
-        {/* VIEW 2: PROJECTS */}
         {activeTab === "projects" && (
-          <div className="flex flex-col gap-9 animate-fade-in">
-            {/* Project 1 */}
+          <div className="flex flex-col gap-9 animate-fade-in lowercase">
             <div className="group">
               <div className="flex items-center gap-3 mb-1">
-                <h4 className="text-3xl font-light lowercase">novel nest</h4>
-                <div className="flex gap-2 opacity-60">
-                  <Code className="w-4 h-4" />
-                </div>
+                <h4 className="text-3xl font-light lowercase">kinoji</h4>
               </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
-                Letterboxd for books. Track reading and discover new books using
-                Google Books API.
+                a data engineering and analytics system with AI integration, to
+                map trends in the film industry.
               </p>
               <div className="flex gap-4">
-                <Link href="#" className="text-sm font-semibold text-[#E81123]">
+                <a
+                  href="https://github.com/vedanthanekar45/kinoji"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
                   view code
-                </Link>
-                <Link href="#" className="text-sm font-semibold text-[#E81123]">
+                </a>
+                <a
+                  href="https://kinoji.vercel.app"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  demo
+                </a>
+                <a
+                  href="https://medium.com/@vedanthanekar45/making-a-film-data-visualizing-platform-using-etl-fastapi-svelte-and-digitalocean-f1cb23fcfb81"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  blog
+                </a>
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">flow.js</h4>
+              </div>
+              <p className="text-sm text-gray-400 mb-2 line-clamp-2">
+                a javascript library built on top of three.js that abstracts and
+                simplifies 3D rendering pipelines on browsers.
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/vedanthanekar45/NovelNest"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  view code
+                </a>
+                <Link
+                  href="https://novlnest-tr48.onrender.com"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
                   demo
                 </Link>
               </div>
             </div>
 
-            {/* Project 2 */}
             <div className="group">
-              <h4 className="text-3xl font-light lowercase">ferry</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">novel nest</h4>
+              </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
-                High-throughput context extraction engine for AI workflows
-                written in Go.
+                a full-stack book cataloging platform where users can track,
+                review, and organize their reading lists.
               </p>
-              <span className="text-sm font-semibold text-[#E81123] opacity-60">
-                coming soon
-              </span>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/vedanthanekar45/NovelNest"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  view code
+                </a>
+                <Link
+                  href="https://novlnest-tr48.onrender.com"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  demo
+                </Link>
+              </div>
             </div>
 
-            {/* Project 3 */}
             <div className="group">
               <h4 className="text-3xl font-light lowercase">the wanderer</h4>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
-                Travel companion app. Backend infrastructure with Express and
+                travel companion app. Backend infrastructure with Express and
                 MySQL.
               </p>
-              <Link href="#" className="text-sm font-semibold text-[#E81123]">
+              <Link
+                href="https://github.com/vedanthanekar45/the-wanderer"
+                className="text-sm font-semibold text-[#E81123]"
+              >
                 view code
               </Link>
             </div>
 
-            {/* Project 4 */}
             <div className="group">
-              <h4 className="text-3xl font-light lowercase">kinoji</h4>
+              <h4 className="text-3xl font-light lowercase">ferry</h4>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
-                Data engineering analytics system for film industry trends.
+                context transfer engine for AI workflows written in Go.
               </p>
-              <Link href="#" className="text-sm font-semibold text-[#E81123]">
-                view code
-              </Link>
+              <div className="flex gap-4">
+                <span className="text-sm font-semibold text-[#E81123] opacity-60">
+                  in development
+                </span>
+                <Link
+                  href="https://github.com/vedanthanekar45/ferry"
+                  className="text-sm font-semibold text-[#E81123]"
+                >
+                  view code
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* === VIEW 4: EDUCATION === */}
+        {activeTab === "education" && (
+          <div className="flex flex-col gap-9 animate-fade-in">
+            <div className="group">
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">
+                  bachelors (B.Tech)
+                </h4>
+                <GraduationCap className="w-5 h-5 opacity-60" />
+              </div>
+              <p className="text-sm font-semibold text-[#E81123] mb-1">
+                Information Technology
+              </p>
+              <p className="text-sm text-gray-400 mb-2">
+                Nov 2022 - June 2026 (expected)
+              </p>
+              <p className="text-sm text-gray-500 leading-snug lowercase">
+                Focused on Computer Networks, Database Management Systems, and
+                Object-Oriented Programming.
+              </p>
             </div>
           </div>
         )}
       </div>
 
-      {/* --- 3. BOTTOM APP BAR --- */}
       <div className="absolute bottom-0 w-full bg-[#1F1F1F] h-16 flex items-center justify-center gap-12 border-t border-gray-800 z-50">
         <button className="flex flex-col items-center justify-center w-10 h-10 rounded-full border-2 border-white opacity-80 active:bg-white active:text-black transition-colors">
-          <MapPin className="w-5 h-5" />
+          <Briefcase className="w-5 h-5" />
         </button>
 
         <button
@@ -165,9 +270,7 @@ export default function MobileProfile({
           <ArrowLeft className="w-5 h-5" />
         </button>
 
-        <button className="flex flex-col items-center justify-center w-10 h-10 rounded-full border-2 border-white opacity-80 active:bg-white active:text-black transition-colors">
-          <MoreHorizontal className="w-5 h-5" />
-        </button>
+        <div className="w-10 h-10" />
       </div>
     </div>
   );
