@@ -184,18 +184,18 @@ export default function MobileProfile({
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/vedanthanekar45/NovelNest"
+                  href="https://github.com/AshutoshKhadse23/flow-js"
                   className="text-sm font-semibold"
                   style={{ color: accentColor }}
                 >
                   view code
                 </a>
                 <Link
-                  href="https://novlnest-tr48.onrender.com"
+                  href="https://flowjs3d.vercel.app"
                   className="text-sm font-semibold"
                   style={{ color: accentColor }}
                 >
-                  demo
+                  website
                 </Link>
               </div>
             </div>
