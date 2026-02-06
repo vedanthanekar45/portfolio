@@ -35,6 +35,31 @@ export default function Home() {
 
   return (
     <>
+      <div className="sr-only">
+        <h1>Vedant Thanekar - Software Developer Portfolio</h1>
+        <p>
+          Hi, I’m Vedant Thanekar, a final-year Information Technology student
+          who enjoys building systems, from backend APIs and data pipelines to
+          production deployments. I’ve worked on full-stack and backend projects
+          involving ETL pipelines, relational databases, and cloud
+          infrastructure. Apart from tech, I am also interested in Films, TV
+          shows. I love telling stories, I also write sometimes. Books are a big
+          part of how I think and feel about the world. What drives me the most
+          is curiosity. I like learning how things are made, whether I&apos;m
+          writing, reading or coding, I always love chasing that feeling.
+        </p>
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            Flow.js: 3D abstraction Javascript library for external model
+            integration.
+          </li>
+          <li>Novel Nest: Book cataloging platform using Google Books API.</li>
+          <li>Kinoji: Data engineering analytics system for film trends.</li>
+        </ul>
+        <h2>Experience</h2>
+        <p>Software Engineer Intern working with Databricks and FastAPI.</p>
+      </div>
       <div className="block md:hidden">
         <MobileStartScreen />
       </div>
