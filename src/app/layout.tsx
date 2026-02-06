@@ -15,8 +15,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vedant Thanekar",
-  description: "My portfolio",
+  title: "Vedant Thanekar | Software Developer",
+  description:
+    "Software Developer with expertise Cloud Infrastructure, Backend development using Python and Golang, and Data Engineering.",
+  keywords: [
+    "Vedant Thanekar",
+    "Software Developer",
+    "Backend Engineer",
+    "Portfolio",
+  ],
+
+  verification: {
+    google:
+      '<meta name="google-site-verification" content="DyHlD191vpcQPHXAMi_5Nt_aSfi-SZPy9oZBKD85A9E" />',
+  },
 };
 
 export const viewport = {
@@ -31,15 +43,39 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Vedant Thanekar",
+    url: "https://vedanthanekar.vercel.app",
+    image: "https://your-domain.com/photo.jpg",
+    jobTitle: "Software Developer",
+    worksFor: {
+      "@type": "IgnAIte",
+      name: "Software Engineer Intern", // Update as needed
+    },
+    alumniOf: {
+      "@type": "Savitribai Phule Pune University",
+      name: "K. K. Wagh Institute of Engineering Education of Research",
+    },
+    sameAs: [
+      "https://linkedin.com/in/vedant-thanekar",
+      "https://github.com/vedanthanekar45",
+      "https://x.com/ThanekarVedant",
+      "https://medium.com/@vedanthanekar45",
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <Provider> */}
-
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
-        {/* </Provider> */}
       </body>
     </html>
   );
