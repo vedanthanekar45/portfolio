@@ -31,7 +31,41 @@ export default function Experience() {
           </h1>
         </div>
         <div>
-          <h1 className="mt-2 text-black">December 2025 - Present</h1>
+          <h1 className="mt-2 text-black">December 2025 - April 2026</h1>
+        </div>
+      </div>
+
+      <div className="w-full relative rounded-xl bg-[#f1f1f1] h-auto p-4 my-8">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-6">
+            <h1 className="text-black text-3xl">Klingelnberg India Pvt Ltd</h1>
+          </div>
+        </div>
+        <hr className=" mt-4 left-4 right-4 border-gray-300" />
+        <div>
+          <h1 className="mt-2 text-black py-2">
+            Role: Intern 
+          </h1>
+        </div>
+        <div>
+          <h1 className="mt-2 text-black">April 2026 - July 2026</h1>
+        </div>
+      </div>
+
+      <div className="w-full relative rounded-xl bg-[#f1f1f1] h-auto p-4 my-8">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-6">
+            <h1 className="text-black text-3xl">Klingelnberg India Pvt Ltd</h1>
+          </div>
+        </div>
+        <hr className=" mt-4 left-4 right-4 border-gray-300" />
+        <div>
+          <h1 className="mt-2 text-black py-2">
+            Role: Junior Software Engineer
+          </h1>
+        </div>
+        <div>
+          <h1 className="mt-2 text-black">July 2026 - Present</h1>
         </div>
       </div>
     </div>

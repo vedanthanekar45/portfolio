@@ -21,55 +21,21 @@ export default function Projects() {
       <div className="w-full relative rounded-xl bg-[#f1f1f1] h-auto p-4 my-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-6">
-            <h1 className="text-black text-3xl">The Wanderer</h1>
+            <h1 className="text-black text-3xl">Andor</h1>
             <div className="flex items-center space-x-3 mt-[5px] text-2xl">
-              <FaNodeJs className="text-green-600" />
-              <SiExpress className="text-black" />
-              <GrMysql className="text-blue-700" />
-              <SiEjs className="text-[#630226]" />
-            </div>
-          </div>
-          <div>
-            <a
-              href="https://github.com/vedanthanekar45/the-wanderer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LuGithub className="text-black text-3xl mr-4 font-thin" />
-            </a>
-          </div>
-        </div>
-        <hr className=" mt-4 left-4 right-4 border-gray-300" />
-        <div>
-          <h1 className="mt-2 text-black py-2">
-            A travel companion application designed to help users navigate new
-            destinations. Responsible for building the core backend
-            infrastructure with a MySQL database.
-          </h1>
-        </div>
-      </div>
-
-      <div className="w-full relative rounded-xl bg-[#f1f1f1] h-auto p-4 my-4">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <h1 className="text-black text-3xl">BookTalk</h1>
-            <div className="flex items-center space-x-3 mt-[5px] text-2xl">
-              <SiMongodb className="text-green-700" />
-              <SiExpress className="text-black" />
-              <FaReact className="text-blue-500" />
-              <FaNodeJs className="text-green-600" />
+              <FaPython className="text-blue-900" />
             </div>
           </div>
           <div className="flex">
             <a
-              href="https://github.com/vedanthanekar45/BookTok"
+              href="https://github.com/vedanthanekar45/andor"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LuGithub className="text-black text-3xl mr-4 font-thin" />
             </a>
             <a
-              href="https://booktalk-66lw.onrender.com/"
+              href="https://pypi.org/project/andor-data/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,8 +46,7 @@ export default function Projects() {
         <hr className=" mt-4 left-4 right-4 border-gray-300" />
         <div>
           <h1 className="mt-2 text-black py-2">
-            A minimalistic chat application made with the MERN stack. Made to
-            extend my knowledge of real-time applications using Sockets.
+            A lightweight Python pipeline utility for running functions over a list of inputs with optional batching and throttling.
           </h1>
         </div>
       </div>

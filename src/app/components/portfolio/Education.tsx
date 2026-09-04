@@ -16,7 +16,7 @@ export default function Education() {
                 </div>
                 <div>
                     <h1 className="mt-2 text-black">
-                        Nov 2022 - Present (Graduating 2026)
+                        Nov 2022 - June 2026
                     </h1>
                 </div>
                 <div>

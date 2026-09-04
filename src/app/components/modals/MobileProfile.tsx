@@ -47,9 +47,11 @@ export default function MobileProfile({
                 Vedant Thanekar
               </h3>
               <p className="text-sm text-gray-400 mt-1 leading-snug">
-                Hi, I’m a final-year Information Technology student who enjoys
-                building systems, from backend APIs and data pipelines to
-                production deployments.
+                Hi, I’m Vedant Thanekar, a software engineer currently working at Klingelnbeg India as a Junior Software Engineer in the gear metrology domain
+                who enjoys building systems, from backend APIs and data pipelines to
+                production deployments. I’ve worked on full-stack and backend projects
+                involving ETL pipelines, relational databases, and cloud
+                infrastructure.
               </p>
               <p className="text-sm text-gray-400 mt-3 leading-snug">
                 Apart from tech, I am interested in films and storytelling.
@@ -85,6 +87,43 @@ export default function MobileProfile({
         {activeTab === "experience" && (
           <div className="flex flex-col gap-9 animate-fade-in lowercase">
             {/* Exp 1 */}
+            <div className="group">
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">klingelnberg india</h4>
+              </div>
+              <p
+                className="text-sm font-semibold mb-1"
+                style={{ color: accentColor }}
+              >
+                junior software engineer
+              </p>
+              <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">
+                July 2026 – Present
+              </p>
+              <p className="text-sm text-gray-400 mb-2 leading-snug">
+                currently working in the gear metrology domain building and maintaining 
+                software related to statistics and mathematics
+              </p>
+            </div>
+
+            <div className="group">
+              <div className="flex items-center gap-3 mb-1">
+                <h4 className="text-3xl font-light lowercase">klingelnberg india</h4>
+              </div>
+              <p
+                className="text-sm font-semibold mb-1"
+                style={{ color: accentColor }}
+              >
+                intern
+              </p>
+              <p className="text-xs text-gray-500 mb-2 uppercase tracking-widest">
+                April 2026 – July 2026
+              </p>
+              <p className="text-sm text-gray-400 mb-2 leading-snug">
+                worked on simulation applications in the gear metrology domain
+              </p>
+            </div>
+
             <div className="group">
               <div className="flex items-center gap-3 mb-1">
                 <h4 className="text-3xl font-light lowercase">ignaite, llc</h4>
@@ -262,14 +301,14 @@ export default function MobileProfile({
             </div>
 
             <div className="group">
-              <h4 className="text-3xl font-light lowercase">ferry</h4>
+              <h4 className="text-3xl font-light lowercase">andor</h4>
               <div>
                 <p className="text-sm font-semibold text-gray-400">
-                  stack: golang, net/http
+                  stack: python
                 </p>
               </div>
               <p className="text-sm text-gray-400 mb-2 line-clamp-2">
-                context transfer engine for AI workflows written in Go.
+                a lightweight Python pipeline utility for running functions over a list of inputs with optional batching and throttling.
               </p>
               <div className="flex gap-4">
                 <span
@@ -279,7 +318,14 @@ export default function MobileProfile({
                   in development
                 </span>
                 <Link
-                  href="https://github.com/vedanthanekar45/ferry"
+                  href="https://pypi.org/project/andor-data/"
+                  className="text-sm font-semibold"
+                  style={{ color: accentColor }}
+                >
+                  pypi page 
+                </Link>
+                <Link
+                  href="https://github.com/vedanthanekar45/andor"
                   className="text-sm font-semibold"
                   style={{ color: accentColor }}
                 >
@@ -307,7 +353,7 @@ export default function MobileProfile({
                 Information Technology
               </p>
               <p className="text-sm text-gray-400 mb-2">
-                Nov 2022 - June 2026 (expected)
+                Nov 2022 - June 2026
               </p>
               <p className="text-sm text-gray-500 leading-snug lowercase">
                 Focused on Computer Networks, Database Management Systems, and

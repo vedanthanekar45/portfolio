@@ -3,7 +3,7 @@ export default function About() {
     <div className="mt-24">
       <h1 className="text-black text-2xl">
         <p>
-          Hi, I’m Vedant Thanekar, a final-year Information Technology student
+          Hi, I’m Vedant Thanekar, a software engineer currently working at Klingelnbeg India as a Junior Software Engineer in the gear metrology domain
           who enjoys building systems, from backend APIs and data pipelines to
           production deployments. I’ve worked on full-stack and backend projects
           involving ETL pipelines, relational databases, and cloud
